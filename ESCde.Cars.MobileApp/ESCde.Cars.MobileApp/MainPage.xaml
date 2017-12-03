@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ESCde.Cars.MobileApp"
+             xmlns:vm="clr-namespace:ESCde.Cars.MobileApp.ViewModel"
+             x:Class="ESCde.Cars.MobileApp.MainPage">
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="LoadButton" Text="{Binding ButtonText}" Clicked="Refresh"/>
+            <ListView x:Name="CarList"
+                      IsPullToRefreshEnabled="True"
+                      Refreshing="Refresh">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical"
+                                         BackgroundColor="{Binding Color}">
+                                <Label Text="{Binding Id}"/>
+                                <Label Text="{Binding Description}"/>
+                                <Label Text="{Binding ColorText}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
