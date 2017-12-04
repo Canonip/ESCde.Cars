@@ -12,14 +12,14 @@ namespace ESCde.Cars.Backend.Controllers
     [Route("api/[controller]")]
     public class CarController : Controller
     {
-        // GET api/values
+        // GET api/car
         [HttpGet]
         public IActionResult Get()
         {
             return new OkObjectResult(Database.Instance.Cars);
         }
 
-        // GET api/values/5
+        // GET api/car/5
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
@@ -35,7 +35,7 @@ namespace ESCde.Cars.Backend.Controllers
             return new ObjectResult(foundCar);
         }
 
-        // POST api/values
+        // POST api/car
         [HttpPost]
         public IActionResult CreateNewCar([FromBody]Car newCar)
         {
@@ -45,7 +45,7 @@ namespace ESCde.Cars.Backend.Controllers
 
         }
 
-        // PUT api/values/5
+        // PUT api/car/5
         [HttpPut("{id}")]
         public IActionResult UpdateCar(Guid id, [FromBody]Car car)
         {
@@ -68,7 +68,7 @@ namespace ESCde.Cars.Backend.Controllers
 
             return new NoContentResult();
         }
-
+        // PATCH api/car/5
         [HttpPatch("{id}")]
         public IActionResult UpdateCarDeltas(Guid id, [FromBody]Car car)
         {
@@ -91,7 +91,7 @@ namespace ESCde.Cars.Backend.Controllers
             return new OkObjectResult(updatedCar);
         }
 
-        // DELETE api/values/5
+        // DELETE api/car/5
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
